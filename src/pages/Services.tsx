@@ -1,17 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Globe,
-  Puzzle,
-  FileText,
-  Code,
-  Chrome,
-  Monitor,
-  ArrowRight,
-  Sparkles
-} from "lucide-react";
+import { Globe, Puzzle, FileText, Code, Chrome, Monitor, ArrowRight, Sparkles } from "lucide-react";
 import Header from "@/components/Header";
+import ParticleBackground from "@/components/Particles";
 
 const Services = () => {
   const services = [
@@ -75,8 +67,16 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
+      <section
+        className="relative py-20 overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8))`,
+        }}
+      >
+        {/* Particles confined to About hero section */}
+        <ParticleBackground />
+
+        {/* Hero Section */}
         <div className="absolute inset-0 bg-codewave-dark/90"></div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">

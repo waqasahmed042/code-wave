@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Target, Users, Award, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/Particles";
 
 const About = () => {
   const values = [
@@ -29,12 +30,19 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 bg-codewave-dark/90"></div>
+      <section
+        className="relative py-20 overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8))`,
+        }}
+      >
+        {/* Particles confined to About hero section */}
+        <ParticleBackground />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-2 text-white/80 mb-4">
@@ -42,11 +50,11 @@ const About = () => {
               <ArrowRight className="w-4 h-4" />
               <span>About Us</span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
               About Us
             </h1>
-            
+
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               We are a team of passionate developers and designers dedicated to creating innovative digital solutions that transform businesses.
             </p>
@@ -73,8 +81,8 @@ const About = () => {
               </p>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                 alt="Team collaboration"
                 className="rounded-lg shadow-strong"
               />
@@ -96,7 +104,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card 
+              <Card
                 key={value.title}
                 className="group hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm text-center"
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -119,7 +127,7 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

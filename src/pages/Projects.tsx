@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, Code, Smartphone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/Particles";
 
 const Projects = () => {
   const projects = [
@@ -66,18 +68,59 @@ const Projects = () => {
       category: "Google Add-on",
       technologies: ["Google Apps Script", "Firebase", "Material-UI"],
       link: "#"
+    },
+    {
+      id: 7,
+      title: "ReportBuilder",
+      subtitle: "Microsoft Office Add-in",
+      description: "Automated report generation tool for Word and PowerPoint, streamlining business reporting processes.",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=300&fit=crop",
+      category: "Office Add-in",
+      technologies: ["Office.js", "TypeScript", "Microsoft Graph"],
+      link: "#"
+    },
+    {
+      id: 8,
+      title: "E-Shop Platform",
+      subtitle: "E-commerce Web Application",
+      description: "Scalable e-commerce solution with payment integration, inventory management, and user authentication.",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
+      category: "Web Development",
+      technologies: ["Next.js", "Stripe", "MongoDB"],
+      link: "#"
+    },
+    {
+      id: 9,
+      title: "AdBlock Pro",
+      subtitle: "Enhanced Browser Extension",
+      description: "Advanced ad-blocking extension with customizable filters and privacy features.",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=300&fit=crop",
+      category: "Browser Extension",
+      technologies: ["JavaScript", "WebExtensions", "CSS"],
+      link: "#"
     }
   ];
 
   const categories = ["All", "Browser Extension", "Google Add-on", "Office Add-in", "Web Development"];
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 bg-codewave-dark/90"></div>
+
+      <section
+        className="relative py-20 overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8))`,
+        }}
+      >
+        {/* Particles confined to Projects hero section */}
+        <ParticleBackground />
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-2 text-white/80 mb-4">
@@ -85,11 +128,11 @@ const Projects = () => {
               <ArrowRight className="w-4 h-4" />
               <span>Projects</span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
               Projects
             </h1>
-            
+
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Explore our case studies to see how our cutting-edge technology solutions have helped businesses achieve their goals and overcome their challenges.
             </p>
@@ -103,10 +146,11 @@ const Projects = () => {
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((category) => (
-              <Button 
+              <Button
                 key={category}
-                variant={category === "All" ? "default" : "outline"}
+                variant={category === selectedCategory ? "default" : "outline"}
                 className="rounded-full"
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </Button>
@@ -115,15 +159,15 @@ const Projects = () => {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card 
+            {filteredProjects.map((project, index) => (
+              <Card
                 key={project.id}
                 className="group hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
@@ -155,8 +199,8 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <Button 
-                    className="w-full group/btn" 
+                  <Button
+                    className="w-full group/btn"
                     variant="outline"
                   >
                     View Project
@@ -170,7 +214,7 @@ const Projects = () => {
       </section>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

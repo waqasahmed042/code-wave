@@ -1,39 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
-import { useEffect, useState } from "react";
+import ParticleBackground from "./Particles";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <>
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8)), url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
-          backgroundAttachment: 'fixed',
-          transition: 'background-position 0.1s ease-out'
+          background: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8))`,
         }}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+        {/* Particles confined to Hero section */}
+        <ParticleBackground />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -67,14 +49,16 @@ const Hero = () => {
                 Book a Consultation
                 <span className="ml-2 text-sm opacity-75">- it's free</span>
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white px-8 py-6 text-lg backdrop-blur-sm"
-              >
-                View Our Work
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link to={"/projects"}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white px-8 py-6 text-lg backdrop-blur-sm"
+                >
+                  View Our Work
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
 
             {/* Awards Section */}
@@ -83,7 +67,6 @@ const Hero = () => {
                 Awards and Certifications
               </p>
               <div className="flex flex-wrap justify-center gap-6 opacity-70">
-                {/* Placeholder for awards badges */}
                 <div className="bg-white/10 rounded-lg px-4 py-2 text-white text-sm">
                   Excellence Award 2024
                 </div>

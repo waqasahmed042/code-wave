@@ -1,14 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  ClipboardList, 
-  FileText, 
-  Palette, 
-  Code, 
-  TestTube, 
-  Rocket,
-  CheckCircle 
-} from "lucide-react";
+import { ClipboardList, FileText, Palette, Code, TestTube, Rocket, CheckCircle } from "lucide-react";
 
 const Process = () => {
   const steps = [
@@ -88,7 +80,7 @@ const Process = () => {
             {steps.map((step, index) => {
               const IconComponent = step.icon;
               const isEven = index % 2 === 0;
-              
+
               return (
                 <div key={step.id} className="relative">
                   {/* Desktop Layout */}

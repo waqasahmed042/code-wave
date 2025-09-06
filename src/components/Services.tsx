@@ -62,105 +62,88 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            <Sparkles className="w-3 h-3 mr-1" />
-            OUR EXPERTISE
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Top Custom Development Services
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Turning your vision into reality with CodeWave's premium custom solutions.
-          </p>
-        </div>
+    <>
+      <section id="services" className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              <Sparkles className="w-3 h-3 mr-1" />
+              OUR EXPERTISE
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Top Custom Development Services
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Turning your vision into reality with CodeWave's premium custom solutions.
+            </p>
+          </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card
-                key={service.id}
-                className="group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="pb-4">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.gradient} p-3 mb-4 group-hover:scale-110 transition-transform`}>
-                    <IconComponent className="w-full h-full text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  {/* Features */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">
-                      Features
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {feature}
-                        </div>
-                      ))}
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card
+                  key={service.id}
+                  className="group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.gradient} p-3 mb-4 group-hover:scale-110 transition-transform`}>
+                      <IconComponent className="w-full h-full text-white" />
                     </div>
-                  </div>
+                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
 
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">
-                      Technologies
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.technologies.slice(0, 4).map((tech, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                      {service.technologies.length > 4 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{service.technologies.length - 4} more
-                        </Badge>
-                      )}
+                  <CardContent>
+                    {/* Features */}
+                    <div className="mb-6">
+                      <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">
+                        Features
+                      </h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {service.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-center text-sm">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* CTA Button */}
-                  <Button
-                    variant="outline"
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                    {/* CTA Button */}
+                    <Button
+                      variant="outline"
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
-            Ready to bring your ideas to life? Let's discuss your project requirements.
-          </p>
-          <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:shadow-medium px-8">
-            Get Started Today
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <p className="text-muted-foreground mb-6">
+              Ready to bring your ideas to life? Let's discuss your project requirements.
+            </p>
+            <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:shadow-medium px-8">
+              Get Started Today
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
