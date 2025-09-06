@@ -1,18 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
   Instagram,
   ArrowRight,
   Heart
 } from "lucide-react";
-import codewaveLogo from "@/assets/codewave-logo.png";
+import code_wave from "@/assets/code-wave-black.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -72,8 +72,8 @@ const Footer = () => {
               Subscribe to our newsletter for the latest updates on development trends and our services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input 
-                type="email" 
+              <Input
+                type="email"
                 placeholder="Enter your email address"
                 className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-primary"
               />
@@ -92,11 +92,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <img src={codewaveLogo} alt="CodeWave Academy" className="h-12 w-12" />
+              <img src={code_wave} alt="CodeWave Academy" className="h-12 w-12" />
               <span className="ml-3 text-2xl font-bold">CodeWave</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Transforming ideas into powerful digital solutions. We specialize in browser extensions, 
+              Transforming ideas into powerful digital solutions. We specialize in browser extensions,
               add-ons, and custom web development that drives business growth.
             </p>
             <div className="flex space-x-4">
@@ -122,7 +122,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-gray-300 hover:text-primary transition-colors flex items-center group"
                   >
@@ -140,7 +140,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={service.href}
                     className="text-gray-300 hover:text-primary transition-colors flex items-center group"
                   >
@@ -160,7 +160,7 @@ const Footer = () => {
                 const IconComponent = contact.icon;
                 return (
                   <li key={index}>
-                    <a 
+                    <a
                       href={contact.href}
                       className="flex items-start text-gray-300 hover:text-primary transition-colors group"
                     >
@@ -197,9 +197,9 @@ const Footer = () => {
               <span>by CodeWave Team</span>
             </div>
           </div>
-          
+
           <Separator className="my-4 bg-white/10" />
-          
+
           <div className="flex flex-wrap justify-center md:justify-start gap-6 text-xs text-gray-400">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

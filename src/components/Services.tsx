@@ -1,16 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Globe, 
-  Puzzle, 
-  FileText, 
-  Code, 
-  Chrome, 
-  Monitor,
-  ArrowRight,
-  Sparkles
-} from "lucide-react";
+import { Globe, Puzzle, FileText, Code, Chrome, Monitor, ArrowRight, Sparkles } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -92,8 +83,8 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card 
-                key={service.id} 
+              <Card
+                key={service.id}
                 className="group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -145,8 +136,8 @@ const Services = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
                   >
                     Learn More

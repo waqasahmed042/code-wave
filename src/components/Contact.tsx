@@ -5,14 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Send,
-  MessageCircle
-} from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,15 +29,15 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast({
       title: "Message Sent Successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-    
+
     setFormData({
       name: "",
       email: "",
@@ -84,7 +77,7 @@ const Contact = () => {
 
   const services = [
     "Browser Extensions",
-    "Google Add-ons", 
+    "Google Add-ons",
     "Office Add-ins",
     "Web Development",
     "UI/UX Design",
@@ -112,7 +105,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-            
+
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon;
               return (
@@ -242,8 +235,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-gradient-primary text-primary-foreground hover:shadow-medium transition-all transform hover:scale-[1.02] py-6 text-lg font-semibold"
                   >
