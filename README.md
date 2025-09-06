@@ -10,6 +10,10 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b5f963c8b767b6b5940883a708bf929f6cb647fc
 ## Features
 
 - 📦 **Office Add-ins Development** – Build custom add-ins for Word, Excel, and Outlook.  
@@ -20,6 +24,13 @@ This project is built with:
 
 ## Getting Started
 
+<<<<<<< HEAD
+=======
+=======
+## Getting Started
+
+>>>>>>> a947630793caa351ed24a6ecf3172133d382bbdc
+>>>>>>> b5f963c8b767b6b5940883a708bf929f6cb647fc
 Follow these steps to run the project locally:
 
 ```sh
