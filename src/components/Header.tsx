@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import codewaveLogo from "@/assets/codewave-logo.png";
+import code_wave from "@/assets/code-wave-black.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/#services" },
+    { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "About Us", href: "/about" },
-    { label: "Contact Us", href: "/#contact" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -19,10 +19,13 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <img src={codewaveLogo} alt="CodeWave Academy" className="h-10 w-10" />
-            <span className="ml-2 text-xl font-bold text-primary">CodeWave</span>
-          </div>
+          <a href="/">
+            <div className="flex items-center cursor-pointer">
+              <img src={code_wave} alt="CodeWave Academy" className="h-16 w-16" />
+              <span className="ml-2 text-xl font-bold text-black">Code</span>
+              <span className="text-xl font-bold text-primary">Wave</span>
+            </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
