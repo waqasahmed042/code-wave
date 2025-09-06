@@ -2,8 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <section 
       id="home"
@@ -11,8 +26,9 @@ const Hero = () => {
       style={{
         backgroundImage: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8)), url(${heroBackground})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
+        backgroundAttachment: 'fixed',
+        transition: 'background-position 0.1s ease-out'
       }}
     >
       {/* Background Pattern */}
@@ -53,7 +69,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg"
+              className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white px-8 py-6 text-lg backdrop-blur-sm"
             >
               View Our Work
               <ArrowRight className="ml-2 h-5 w-5" />

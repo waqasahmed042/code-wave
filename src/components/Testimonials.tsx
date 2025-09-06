@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const Testimonials = () => {
   const testimonials = [
@@ -53,59 +54,69 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card 
-              key={testimonial.id} 
-              className="group hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <CardContent className="p-6">
-                {/* Quote Icon */}
-                <div className="mb-4">
-                  <Quote className="w-8 h-8 text-primary/30 transform rotate-180" />
-                </div>
+        {/* Testimonials Carousel */}
+        <div className="relative max-w-7xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="group hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm overflow-hidden h-full">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      {/* Quote Icon */}
+                      <div className="mb-4">
+                        <Quote className="w-8 h-8 text-primary/30 transform rotate-180" />
+                      </div>
 
-                {/* Rating */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
+                      {/* Rating */}
+                      <div className="flex items-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
 
-                {/* Testimonial Content */}
-                <blockquote className="text-foreground mb-6 italic">
-                  "{testimonial.content}"
-                </blockquote>
+                      {/* Testimonial Content */}
+                      <blockquote className="text-foreground mb-6 italic flex-grow">
+                        "{testimonial.content}"
+                      </blockquote>
 
-                {/* Project Badge */}
-                <Badge variant="outline" className="mb-4 text-xs">
-                  {testimonial.project}
-                </Badge>
+                      {/* Project Badge */}
+                      <Badge variant="outline" className="mb-4 text-xs self-start">
+                        {testimonial.project}
+                      </Badge>
 
-                {/* Author Info */}
-                <div className="flex items-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4 group-hover:scale-110 transition-transform"
-                  />
-                  <div>
-                    <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                      {/* Author Info */}
+                      <div className="flex items-center mt-auto">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name}
+                          className="w-12 h-12 rounded-full object-cover mr-4 group-hover:scale-110 transition-transform"
+                        />
+                        <div>
+                          <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                            {testimonial.name}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {testimonial.role}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {testimonial.company}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 border-white/20 text-white hover:bg-white/20" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 border-white/20 text-white hover:bg-white/20" />
+          </Carousel>
         </div>
 
         {/* Bottom Stats */}
