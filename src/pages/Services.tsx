@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Globe, Puzzle, FileText, Code, Chrome, Monitor, ArrowRight, Sparkles } from "lucide-react";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/Particles";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
@@ -73,26 +74,34 @@ const Services = () => {
           background: `linear-gradient(135deg, hsl(var(--codewave-dark) / 0.9), hsl(var(--codewave-primary) / 0.8))`,
         }}
       >
-        {/* Particles confined to About hero section */}
+        {/* Particles confined to Teams hero section */}
         <ParticleBackground />
 
-        {/* Hero Section */}
-        <div className="absolute inset-0 bg-codewave-dark/90"></div>
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-2 text-white/80 mb-4">
+            <div className="flex items-center justify-center gap-2 text-white/80 mb-4 animate-fade-in">
               <span>Home</span>
               <ArrowRight className="w-4 h-4" />
               <span>Services</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               Services
-            </h1>
+            </motion.h1>
 
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <motion.p
+              className="text-xl text-gray-200 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               We provide tailored digital solutions including web and mobile app development, UI/UX design, cloud integration, and AI-powered analytics—helping businesses innovate, scale, and thrive in the digital era.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
