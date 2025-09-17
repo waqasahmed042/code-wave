@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star } from "lucide-react";
 import ParticleBackground from "./Particles";
 import { Link } from "react-router-dom";
+import team_1 from "@/assets/team-1.png";
 
 const Hero = () => {
   return (
@@ -120,7 +121,7 @@ const Hero = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                src={team_1}
                 alt="Team collaboration"
                 className="rounded-lg shadow-strong"
               />

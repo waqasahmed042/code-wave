@@ -1,11 +1,19 @@
+import { useEffect } from "react"
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ClipboardList, FileText, Palette, Code, TestTube, Rocket, CheckCircle } from "lucide-react";
+import { ClipboardList, FileText, Palette, Code, TestTube, Rocket, CheckCircle, Import } from "lucide-react";
 
 const Process = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
   const steps = [
     {
       id: 1,
+      animation: 'fade-right',
       title: "Project Planning & Strategy",
       description: "We start by understanding your requirements and creating a comprehensive roadmap for your project.",
       features: ["Defining project scope", "Setting up development environment", "Assigning team members"],
@@ -14,6 +22,7 @@ const Process = () => {
     },
     {
       id: 2,
+      animation: 'fade-left',
       title: "Analysis & Documentation",
       description: "Thorough analysis of requirements and creation of detailed technical documentation.",
       features: ["Requirements gathering", "Technical architecture", "Project timeline"],
@@ -22,6 +31,7 @@ const Process = () => {
     },
     {
       id: 3,
+      animation: 'fade-right',
       title: "Design & Prototyping",
       description: "Creating user-friendly designs and interactive prototypes for your approval.",
       features: ["UI/UX design", "Interactive prototypes", "Design system creation"],
@@ -30,6 +40,7 @@ const Process = () => {
     },
     {
       id: 4,
+      animation: 'fade-left',
       title: "Implementation & Coding",
       description: "Building your solution using best practices and modern development methodologies.",
       features: ["Clean code development", "API integration", "Security implementation"],
@@ -38,6 +49,7 @@ const Process = () => {
     },
     {
       id: 5,
+      animation: 'fade-right',
       title: "Testing & Quality Assurance",
       description: "Comprehensive testing to ensure your solution works flawlessly across all platforms.",
       features: ["Automated testing", "Manual QA", "Performance optimization"],
@@ -46,6 +58,7 @@ const Process = () => {
     },
     {
       id: 6,
+      animation: 'fade-left',
       title: "Deployment & Launch",
       description: "Seamless deployment and ongoing support to ensure your success.",
       features: ["Production deployment", "Performance monitoring", "User training"],
@@ -82,7 +95,7 @@ const Process = () => {
               const isEven = index % 2 === 0;
 
               return (
-                <div key={step.id} className="relative">
+                <div key={step.id} data-aos={step.animation} className="relative">
                   {/* Desktop Layout */}
                   <div className={`hidden lg:flex items-center ${isEven ? '' : 'flex-row-reverse'}`}>
                     {/* Content Card */}

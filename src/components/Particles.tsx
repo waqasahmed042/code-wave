@@ -47,7 +47,7 @@ const ParticleBackground = () => {
                                 },
                                 move: {
                                     enable: true,
-                                    speed: 2,
+                                    speed: 1,
                                     outModes: { default: "bounce" },
                                 },
                                 number: { value: 200, density: { enable: true } },

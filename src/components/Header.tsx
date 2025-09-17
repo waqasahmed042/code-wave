@@ -9,7 +9,7 @@ const Header = () => {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
+    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Team", href: "/team" },
@@ -23,7 +23,7 @@ const Header = () => {
             {/* Logo */}
             <a href="/">
               <div className="flex items-center cursor-pointer">
-                <img src={code_wave} alt="CodeWave Academy" className="h-16 w-16" />
+                <img src={code_wave} alt="CodeWave Academy" className="h-20 w-20" />
                 <span className="ml-2 text-xl font-bold text-black">Code</span>
                 <span className="text-xl font-bold text-primary">Wave</span>
               </div>

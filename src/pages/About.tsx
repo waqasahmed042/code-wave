@@ -4,6 +4,7 @@ import { ArrowRight, Target, Users, Award, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/Particles";
+import team_2 from "@/assets/team-2.png";
 
 const About = () => {
   const values = [
@@ -82,7 +83,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                src={team_2}
                 alt="Team collaboration"
                 className="rounded-lg shadow-strong"
               />
