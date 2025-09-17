@@ -95,11 +95,11 @@ const Process = () => {
               const isEven = index % 2 === 0;
 
               return (
-                <div key={step.id} data-aos={step.animation} className="relative">
+                <div key={step.id} className="relative">
                   {/* Desktop Layout */}
                   <div className={`hidden lg:flex items-center ${isEven ? '' : 'flex-row-reverse'}`}>
                     {/* Content Card */}
-                    <div className={`w-5/12 ${isEven ? 'pr-8' : 'pl-8'}`}>
+                    <div data-aos={step.animation} className={`w-5/12 overflow-hidden ${isEven ? 'pr-8' : 'pl-8'}`}>
                       <Card className="group hover:shadow-medium transition-all duration-500 transform hover:-translate-y-1">
                         <CardContent className="p-6">
                           <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${step.color} p-2.5 mb-4 group-hover:scale-110 transition-transform`}>
